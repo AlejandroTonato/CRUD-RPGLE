@@ -1,0 +1,94 @@
+000100140626     A*%%TS  SD  20140626  135903  CI17250999  REL-V7R1M0  5770-WDS
+000200121228     A*---------------------------------------------------------------
+000300140630     A* SISTEMA. . : SOCIOS                                          *
+000400140630     A* APLICACION : SMS                                             *
+000500140326     A* OBJETIVO   : MANTENIMIENTO PREFIJOS DE OPERADORAS            *
+000600140630     A* AUTOR. . . : ALEJANDRO TONATO - SONDA DEL ECUADOR            *
+000700140630     A* Requerim . : 58340                                           *
+000800140326     A*     FECHA. : 2014/03/25                                      *
+000900121228     A*---------------------------------------------------------------
+001000140626     A*%%EC
+001100140626     A                                      DSPSIZ(24 80 *DS3)
+001200140626     A                                      PRINT
+001300140626     A                                      CA03(03 'Salir')
+001400140626     A N52                                  CF04(04 'Seleccionar')
+001500140626     A                                      CA05(05 'Renovar')
+001600140626     A                                      CA12(12 'Regresar')
+001700140325     A          R RCAB
+001800140325     A*%%TS  SD  20140325  110029  CIB721375   REL-V7R1M0  5770-WDS
+001900140325     A            W0NOEM        30A  O  1  2
+002000140325     A                                  1 64DATE
+002100140325     A                                      EDTCDE(Y)
+002200140325     A                                  1 73TIME
+002300140325     A                                  2  2USER
+002400140325     A            Y0PROG        10A  O  2 71
+002500140325     A                                  3 32'INSERTAR PREFIJOS'
+002600140325     A                                      DSPATR(RI)
+002700140325     A                                  4  2'                                 '
+002800140325     A                                      DSPATR(UL)
+002900140325     A            W1OPER        10A  O  4 36
+003000140325     A                                  4 47'                                 '
+003100140325     A                                      DSPATR(UL)
+003200140626     A          R RDTO
+003300140626     A*%%TS  SD  20140626  135903  CI17250999  REL-V7R1M0  5770-WDS
+003400140626     A                                      RTNCSRLOC(&WF4REG &WF4CAM &WF4POS)
+003500140626     A                                      OVERLAY
+003600140626     A            WF4REG        10A  H
+003700140626     A            WF4CAM        10A  H
+003800140626     A            WF4POS         4S 0H
+003900140626     A            WM9W2A         2Y 0B 12 34EDTCDE(Z)
+004000140626     A  26                                  DSPATR(RI)
+004100140626     A N51                                  DSPATR(UL)
+004200140626     A  26                                  DSPATR(PC)
+004300140626     A  51                                  DSPATR(PR)
+004400140626     A                                 17  2'Operadora.....'
+004500140626     A                                 17 19'(F4=Lista)'
+004600140626     A                                      COLOR(BLU)
+004700140626     A  52                                  DSPATR(ND)
+004800140626     A N52                             21 23'Confirmar S/N'
+004900140626     A N52        SN             1A  B 21 38
+005000140626     A  20                                  DSPATR(RI)
+005100140626     A N52                                  DSPATR(UL)
+005200140626     A  20                                  DSPATR(PC)
+005300140626     A  52                                  DSPATR(PR)
+005400140626     A            WM9W3A         2Y 0B 14 34EDTCDE(Z)
+005500140626     A  27                                  DSPATR(RI)
+005600140626     A N51                                  DSPATR(UL)
+005700140626     A  27                                  DSPATR(PC)
+005800140626     A  51                                  DSPATR(PR)
+005900140626     A                                 10  2'Operadora 1.................:'
+006000140626     A            WM9W1A         2Y 0B 10 34EDTCDE(Z)
+006100140626     A  25                                  DSPATR(RI)
+006200140626     A N51                                  DSPATR(UL)
+006300140626     A  25                                  DSPATR(PC)
+006400140626     A  51                                  DSPATR(PR)
+006500140626     A            WDESCR        30A  O 17 40
+006600140626     A                                 12  2'Operadora 2.................:'
+006700140626     A                                 14  2'Operadora 3.................:'
+006800140626     A                                 17 30':'
+006900140626     A            WM60A          1A  B 17 34
+007000140626     A  28                                  DSPATR(RI)
+007100140626     A N52                                  DSPATR(UL)
+007200140626     A  28                                  DSPATR(PC)
+007300140626     A  52                                  DSPATR(PR)
+007400140626     A          R RFNC
+007500140626     A*%%TS  SD  20140626  121944  CI17250999  REL-V7R1M0  5770-WDS
+007600140626     A                                      OVERLAY
+007700140626     A                                 22  2'F3=Salir'
+007800140626     A                                      COLOR(BLU)
+007900140626     A N52                             22 16'F5=Renovar'
+008000140626     A                                      COLOR(BLU)
+008100140626     A                                 22 31'F12=Regresar'
+008200140626     A                                      COLOR(BLU)
+008300000000     A          R RSFLMSG                   SFL
+008400000000     A                                      SFLMSGRCD(24)
+008500000505     A            Y0MGKE                    SFLMSGKEY
+008600000505     A            Y0PROG                    SFLPGMQ
+008700000000     A          R RMSGCTL                   SFLCTL(RSFLMSG)
+008800000000     A                                      OVERLAY
+008900000416     A  95                                  SFLDSP
+009000000416     A  96                                  SFLDSPCTL
+009100000416     A N96                                  SFLCLR
+009200000416     A  96                                  SFLEND
+009300000000     A                                      SFLSIZ(0050)
+009400000000     A                                      SFLPAG(0001)

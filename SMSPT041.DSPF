@@ -1,0 +1,157 @@
+000010140626     A*%%TS  SD  20140626  121857  CI17250999  REL-V7R1M0  5770-WDS
+000020140630     F* -------------------------------------------------------------
+000030140630     F* SITEMA . . : SOCIOS - SMS                                   -
+000040140630     F* APLICACION : SMS                                            -
+000050140630     F* DECRIPCION : TRABAJAR CON PREFIJOS DE OPERADORAS            -
+000060140630     F* AUTOR  ....: ALEJANDRO TONATO - SONDA DEL ECUADOR           -
+000070140630     F* REQUERIM...: 58340                                          -
+000080140630     F* FECHA .....: 2014/03/25                                     -
+000090140630     F*--------------------------------------------------------------
+000110140626     A*%%EC
+000120140626     A                                      DSPSIZ(27 132 *DS4)
+000130140626     A                                      PRINT
+000140140325     A          R RCAB
+000150140325     A*%%TS  SD  20140325  094919  CIB721375   REL-V7R1M0  5770-WDS
+000160140325     A            WCOMPA        30A  O  1  2
+000170140325     A            WFEPRO         8Y 0O  1107EDTWRD('    /  /  ')
+000180140325     A                                  1121TIME
+000190140325     A            WUSUAR        10A  O  2  2
+000200140325     A            WPROGR        10A  O  2121
+000210140325     A                                  3 58'PREFIJOS OPERADORAS'
+000220140325     A                                      DSPATR(RI)
+000230140325     A                                  4  2'                                  -
+000240140325     A                                                                         -
+000250140325     A                                                                         -
+000260140325     A                                                                '
+000270140325     A                                      DSPATR(UL)
+000280140325     A                                  4118' '
+000290140325     A          R RSFL1                     SFL
+000300140325     A*%%TS  SD  20140325  103235  CIB721375   REL-V7R1M0  5770-WDS
+000310140325     A            WOPC           2Y 0B 12  2EDTCDE(Z)
+000320140325     A  81                                  DSPATR(RI)
+000330140325     A  81
+000340140325     AO 97                                  DSPATR(PC)
+000350140325     A            TM9W1A    R        O 12  8REFFLD(TMSMT22U/TM9W1A *LIBL/TMSMT2-
+000360140325     A                                      2U)
+000370140325     A                                      EDTCDE(Z)
+000380140325     A            TM9W2A    R        O 12 18REFFLD(TMSMT22U/TM9W2A *LIBL/TMSMT2-
+000390140325     A                                      2U)
+000400140325     A                                      EDTCDE(Z)
+000410140325     A            TM9W3A    R        O 12 28REFFLD(TMSMT22U/TM9W3A *LIBL/TMSMT2-
+000420140325     A                                      2U)
+000430140325     A                                      EDTCDE(Z)
+000440140325     A            WOPERA        50A  O 12 38
+000450140325     A          R RSFLCTL1                  SFLCTL(RSFL1)
+000460140325     A*%%TS  SD  20140325  095412  CIB721375   REL-V7R1M0  5770-WDS
+000470140624     A                                      SFLSIZ(0013)
+000480140325     A                                      SFLPAG(0013)
+000490140325     A                                      CA05
+000500140325     A                                      CF06
+000510140325     A                                      ROLLUP(95 'AVANZAR.')
+000520140325     A                                      ROLLDOWN(96 'RETROCEDER.')
+000530140325     A                                      OVERLAY
+000540140325     A  91                                  SFLDSP
+000550140325     A  92                                  SFLDSPCTL
+000560140325     A N92                                  SFLCLR
+000570140325     A  38                                  SFLEND(*SCRBAR *SCRBAR)
+000580140325     A                                      CA03(03 'SALIR ')
+000590140325     A                                      RTNCSRLOC(&WF4REG &WF4CAM &WF4POS)
+000600140325     A            WF4REG        10A  H
+000610140325     A            WF4CAM        10A  H
+000620140325     A            WF4POS         4S 0H
+000630140325     A                                  6  2'Teclee opciones, pulse Intro'
+000640140325     A                                      COLOR(BLU)
+000650140325     A                                  7  4'2=Modificar'
+000660140325     A                                      COLOR(BLU)
+000670140325     A                                  7 19'4=Eliminar'
+000680140325     A                                      COLOR(BLU)
+000690140325     A                                  7 34'5=Visualizar'
+000700140325     A                                      COLOR(BLU)
+000710140325     A                                  8  7'Situar en:'
+000720140325     A  53        WSIT02         2Y 0B  8 25EDTCDE(Z)
+000730140325     A                                      BLANKS(94)
+000740140624     A  53        WSIT04         2Y 0B  8 30EDTCDE(Z)
+000750140325     A                                 10  2'Opc'
+000760140325     A                                      COLOR(WHT)
+000770140325     A                                 10  8'Prefijo1'
+000780140325     A                                      COLOR(WHT)
+000790140325     A                                 10 38'Operadora'
+000800140325     A                                      COLOR(WHT)
+000810140325     A                                 10 18'Prefijo2'
+000820140325     A                                      COLOR(WHT)
+000830140325     A                                 10 28'Prefijo3'
+000840140325     A                                      COLOR(WHT)
+000850140624     A  53        WSIT01         2Y 0B  8 20EDTCDE(Z)
+000860140325     A          R RSFL2                     SFL
+000870140325     A*%%TS  SD  20140325  103235  CIB721375   REL-V7R1M0  5770-WDS
+000880140325     A            TM9W1A    R        O 12  8REFFLD(TMSMT22U/TM9W1A *LIBL/TMSMT2-
+000890140325     A                                      2U)
+000900140325     A                                      EDTCDE(Z)
+000910140325     A            TM9W2A    R        O 12 18REFFLD(TMSMT22U/TM9W2A *LIBL/TMSMT2-
+000920140325     A                                      2U)
+000930140325     A                                      EDTCDE(Z)
+000940140325     A            TM9W3A    R        O 12 28REFFLD(TMSMT22U/TM9W3A *LIBL/TMSMT2-
+000950140325     A                                      2U)
+000960140325     A                                      EDTCDE(Z)
+000970140325     A            WOPERA        50A  O 12 38
+000980140325     A          R RSFLCTL2                  SFLCTL(RSFL2)
+000990140325     A*%%TS  SD  20140325  100004  CIB721375   REL-V7R1M0  5770-WDS
+001000140624     A                                      SFLSIZ(0013)
+001010140325     A                                      SFLPAG(0013)
+001020140325     A                                      CA12(12 'CANCELAR.')
+001030140325     A                                      OVERLAY
+001040140325     A  98                                  SFLDSP
+001050140325     A  98                                  SFLDSPCTL
+001060140325     A N98                                  SFLCLR
+001070140325     A                                  6  2'Pulse INTRO para confirmar la elim-
+001080140325     A                                      inación.'
+001090140325     A                                      COLOR(BLU)
+001100140325     A                                  7  2'Pulse F12 para volver y cambiar su-
+001110140325     A                                       elección.'
+001120140325     A                                      COLOR(BLU)
+001130140325     A                                 10  8'Prefijo1'
+001140140325     A                                      COLOR(WHT)
+001150140325     A                                 10 18'Prefijo2'
+001160140325     A                                      COLOR(WHT)
+001170140325     A                                 10 28'Prefijo3'
+001180140325     A                                      COLOR(WHT)
+001190140325     A                                 10 38'Operadora'
+001200140325     A                                      COLOR(WHT)
+001210140626     A          R RFNC1
+001220140626     A*%%TS  SD  20140626  121857  CI17250999  REL-V7R1M0  5770-WDS
+001230140626     A                                      OVERLAY
+001240140626     A N38                             25127'Más...'
+001250140626     A                                      DSPATR(HI)
+001260140626     A  38                             25127'Final.'
+001270140626     A                                      DSPATR(HI)
+001280140626     A                                 26  2'F3=Salir'
+001290140626     A                                      COLOR(BLU)
+001300140626     A                                 26 14'F5=Renovar'
+001310140626     A                                      COLOR(BLU)
+001320140626     A                                 26 31'F6=Crear'
+001330140626     A                                      COLOR(BLU)
+001340140314     A          R RFNC2
+001350140314     A*%%TS  SD  20140314  094434  CI17111491  REL-V7R1M0  5770-WDS
+001360140314     A                                      OVERLAY
+001370140314     A                                 25127'Final.'
+001380140314     A                                      DSPATR(HI)
+001390140314     A                                 26  2'F12=Regresar'
+001400140314     A                                      COLOR(BLU)
+001410110706     A          R RNODTO
+001420110706     A*%%TS  SD  20110706  120337  S170884583  REL-V6R1M0  5761-WDS
+001430110706     A                                      OVERLAY
+001440121114     A                                 14 18'(No Existen Datos.)'
+001450110621     A          R RSFLMSG                   SFL
+001460110621     A*%%TS  SD  19930501  120000  QSECOFR     REL-V2R1M0  5738-PW1
+001470121114     A                                      SFLMSGRCD(27)
+001480111014     A            WMSGKE                    SFLMSGKEY
+001490121114     A            WPROGR                    SFLPGMQ(10)
+001500110621     A          R RMSGCTL                   SFLCTL(RSFLMSG)
+001510110621     A*%%TS  SD  19930501  120000  QSECOFR     REL-V2R1M0  5738-PW1
+001520110621     A                                      OVERLAY
+001530110621     A  89                                  SFLDSP
+001540110621     A  90                                  SFLDSPCTL
+001550110621     A  90                                  SFLEND
+001560110621     A N90                                  SFLCLR
+001570110621     A                                      SFLSIZ(0050)
+001580110621     A                                      SFLPAG(0001)
